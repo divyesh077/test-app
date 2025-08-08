@@ -1,5 +1,16 @@
 const asyncHandler = require("express-async-handler");
 
+const posts = [
+  {
+    _id: "1",
+    title: "Hello World!!",
+  },
+  {
+    _id: "2",
+    title: "Welcome to tech!!!",
+  },
+];
+
 const getPosts = asyncHandler((req, res, next) => {
   res.status(200).json({
     status: "OK",
