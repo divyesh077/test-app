@@ -1,4 +1,5 @@
 const express = require("express");
+const { getPosts, getPostById } = require("../controllers/post.controller");
 
 const router = express.Router();
 const posts = [
@@ -11,22 +12,7 @@ const posts = [
     title: "Welcome to tech!!!",
   },
 ];
-router.get("/", (req, res, next) => {
-  res.status(200).json({
-    status: "OK",
-    message: "Get posts successfully!!!",
-    data: posts,
-  });
-});
-
-router.get("/:postId", (req, res, next) => {
-  const { postId } = req.params;
-  const post = posts.filter((post) => post._id === postId);
-  res.status(200).json({
-    status: "OK",
-    message: `Get post with postId ${postId}`,
-    data: post,
-  });
-});
+router.get("/", getPosts);
+router.get("/:postId", getPostById);
 
 module.exports = { postRouter: router };
