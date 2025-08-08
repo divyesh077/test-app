@@ -17,7 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res, next) => {
   res.status(200).json({
     status: "OK",
-    message: "Server is running!!!",
+    message: "Server is running !!!",
   });
 });
+
 module.exports = { app };
