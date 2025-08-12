@@ -1,17 +1,8 @@
 const asyncHandler = require("express-async-handler");
-
-const posts = [
-  {
-    _id: "1",
-    title: "Hello World!!",
-  },
-  {
-    _id: "2",
-    title: "Welcome to tech!!!",
-  },
-];
+const postService = require("../services/post.service");
 
 const getPosts = asyncHandler((req, res, next) => {
+  const posts = postService.getPosts();
   res.status(200).json({
     status: "OK",
     message: "Get posts successfully!!!",
@@ -21,7 +12,7 @@ const getPosts = asyncHandler((req, res, next) => {
 
 const getPostById = asyncHandler((req, res, next) => {
   const { postId } = req.params;
-  const post = posts.filter((post) => post._id === postId);
+  const post = postService.getPostById(postId);
   res.status(200).json({
     status: "OK",
     message: `Get post with postId ${postId}`,
