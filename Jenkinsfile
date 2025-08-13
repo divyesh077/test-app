@@ -5,6 +5,7 @@ pipeline{
         stage("Demo"){
             steps{
                 echo "This is demo!!!"
+                echo "This is demo2!!!"
             }
         }
     }
